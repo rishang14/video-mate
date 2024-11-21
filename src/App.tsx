@@ -1,12 +1,10 @@
-
-import { Button } from "./components/ui/button";
+import Route from "./Routes/Route";
+import Nav from "./Ui/Nav";
 
 function App() {
   return (
    <> 
-   <h1 className="text-6xl">
-    Hello from home page  
-   </h1>
+<Nav/>
   </>
   );
 }
