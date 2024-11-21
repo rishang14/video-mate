@@ -1,10 +1,12 @@
 import React from "react";
 import { IoIosNotificationsOutline, IoIosSearch } from "react-icons/io";
+import { RiVideoUploadLine } from "react-icons/ri";
+import { RxAvatar } from "react-icons/rx";
 import { Input } from "../components/ui/input";
 
 const Nav = () => {
   return (
-    <nav className="w-full p-4 bg-[#000] backdrop:blur-lg  shadow-transparent">
+    <nav className="w-full p-4 bg-foreground backdrop:blur-lg  shadow-transparent">
       <div className=" w-full  px-3 lg:px-8">
         <div className="flex  items-center md:gap-0 gap-4 justify-between">
           <div className=" md:flex md:items-center md:gap-12">
@@ -18,13 +20,18 @@ const Nav = () => {
               <Input
                 className="text-white relative lg:w-[500px]  rounded-2xl md:w-[300px] pl-[30px] "
                 placeholder="Search Channel Name" />
-                <IoIosSearch className="text-gray-200 lg:block hidden absolute top-2 left-[307px] text-xl" />
+                <IoIosSearch className="text-gray-200 lg:block hidden absolute top-2 left-[290px] text-xl" />
             </div>
             <div className="flex md:gap-6 gap-3 items-center justify-between ">
-              <p className="text-white cursor-pointer sm:pl-4">Login</p>
-              <p className="text-white cursor-pointer">SignUp</p>
-              <span className="flex items-center justify-center  cursor-pointer w-10 h-10 rounded-full hover:bg-[#717171]">
-                <IoIosNotificationsOutline color="white" fontSize={"24px"} />
+            <div className="flex px-3 py-1 rounded-2xl items-center gap-2   hover:bg-hover">
+            <RxAvatar color="white" className="text-icons"/> 
+            <p className="text-white ">SignIn</p>  
+            </div>
+              <span className="flex items-center justify-center  cursor-pointer w-10 h-10 rounded-full hover:bg-hover">
+                <RiVideoUploadLine color="white" className="text-icons" />
+              </span>
+              <span className="flex items-center justify-center  cursor-pointer w-10 h-10 rounded-full hover:bg-hover">
+                <IoIosNotificationsOutline color="white" className="text-icons" />
               </span>
             </div>
           </div>
