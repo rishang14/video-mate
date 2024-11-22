@@ -74,7 +74,7 @@ const SignUp = () => {
             <div className="flex items-center justify-between">
               <Link to={"/login"}>
                 <Button className="text-sm text-paraText" variant={"link"}>
-                  Sign-In
+                I have an account.
                 </Button>
               </Link>
               <Button
