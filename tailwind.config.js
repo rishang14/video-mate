@@ -12,7 +12,7 @@ module.exports = {
         ring: "hsl(var(--ring))",
         hover:"#717171",
         paraText:"#6b7280",
-        inputText:"#f6f6f6",
+        secondarybg:"#f6f6f6",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
