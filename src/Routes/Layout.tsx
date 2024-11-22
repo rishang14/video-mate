@@ -1,6 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import Nav from '../Ui/Nav';
 import React from 'react';
+import SideBar from '../Ui/SideBar';
 
 
 export default function Layout({ children }:{children:React.ReactNode}) {
@@ -12,10 +13,14 @@ export default function Layout({ children }:{children:React.ReactNode}) {
   return (
     <>
       <Nav />
-      {/* <div className="content-wrapper"> */}
-        {/* Show Sidebar unless on Login/Signup routes */}
-        {/* {!noSidebarRoutes.includes(location.pathname) && <Sidebar />} */}
+      <div className='flex '>
+      <div className="flex  ">
+        {!noSidebarRoutes.includes(location.pathname) && <SideBar />}
+        </div>
+        <div className='md:flex md:flex-1'>
       {children}
+        </div>
+        </div>
     </>
   );
 }

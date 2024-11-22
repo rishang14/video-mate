@@ -10,7 +10,7 @@ module.exports = {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        hover:"#717171",
+        hover:"rgb(68 94 134 / 70%)",
         paraText:"#6b7280",
         secondarybg:"#f6f6f6",
         background: "hsl(var(--background))",
@@ -53,7 +53,11 @@ module.exports = {
         primary: ["Poppins","sans-serif"] 
       },
       fontSize:{
-        icons:'20px'
+        icons:'23px',
+        sideText:"18px",
+        md:"22px", 
+        sm:"15px",
+        lg:"30px"
       }
     },
   },
