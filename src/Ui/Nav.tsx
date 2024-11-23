@@ -1,7 +1,6 @@
 import React from "react";
 import { IoIosNotificationsOutline, IoIosSearch } from "react-icons/io";
 import { LiaSignOutAltSolid } from "react-icons/lia";
-import { MdOutlineMissedVideoCall } from "react-icons/md";
 import { RiVideoUploadLine } from "react-icons/ri";
 import { RxAvatar } from "react-icons/rx";
 import { Input } from "../components/ui/input";
@@ -12,8 +11,14 @@ import {
   PopoverContent,
 } from "../components/ui/popover";
 import { Avatar, AvatarFallback, AvatarImage } from "../components/ui/avatar";
+import {
+  TooltipProvider,
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+} from "../components/ui/tooltip";
 
-const data = [
+const Popoverdata = [
   {
     para: "My Profile",
     href: "/",
@@ -23,6 +28,17 @@ const data = [
     para: "Log-out",
     href: "/",
     icon: <LiaSignOutAltSolid color="white" className="text-icons" />,
+  },
+];
+
+const TooltipData = [
+  {
+    icon: <RiVideoUploadLine color="white" className="text-icons" />,
+    para: "Upload",
+  },
+  {
+    icon: <IoIosNotificationsOutline color="white" className="text-icons" />,
+    para: "Notifications",
   },
 ];
 
@@ -55,21 +71,7 @@ const Nav = () => {
                     SignUp
                   </Link>
                 </div>
-                <span className="flex items-center justify-center  cursor-pointer w-10 h-10 rounded-full hover:bg-hover">
-                  <RiVideoUploadLine color="white" className="text-icons" />
-                </span>
-                <span className="flex items-center justify-center  cursor-pointer w-10 h-10 rounded-full hover:bg-hover">
-                  <IoIosNotificationsOutline
-                    color="white"
-                    className="text-icons"
-                  />
-                </span>
-                <span className="flex items-center justify-center  cursor-pointer w-10 h-10 rounded-full hover:bg-hover">
-                  <MdOutlineMissedVideoCall
-                    color="white"
-                    className="text-icons"
-                  />
-                </span>
+                <IconWithToolTip data={TooltipData}/>
                 {/* <AvatarWithPopOver /> */}
               </div>
             </div>
@@ -86,7 +88,7 @@ export default Nav;
 const AvatarWithPopOver = () => {
   return (
     <Popover>
-      <PopoverTrigger >
+      <PopoverTrigger>
         <Avatar className=" w-8 h-8 cursor-pointer">
           {/* <AvatarImage /> */}
           <AvatarFallback className="text-icons">A</AvatarFallback>
@@ -94,7 +96,7 @@ const AvatarWithPopOver = () => {
       </PopoverTrigger>
       <PopoverContent className="w-[180px] bg-foreground">
         <div className="flex flex-col ">
-          {data.map((item) => (
+          {Popoverdata.map((item) => (
             <Link
               to={item.href}
               className={`flex items-center md:flex-row   hover:bg-hover rounded-lg  gap-2   p-2 `}
@@ -109,3 +111,30 @@ const AvatarWithPopOver = () => {
     </Popover>
   );
 };
+
+type TooltipData={
+icon:JSX.Element,
+para:string
+}
+
+
+const IconWithToolTip=({data}:{data:TooltipData[]})=>{
+  return(
+    <TooltipProvider>
+   {
+    data.map(item=>(
+      <Tooltip key={item.para}>
+      <TooltipTrigger asChild>
+        <span className="flex items-center justify-center  cursor-pointer w-10 h-10 rounded-full hover:bg-hover">
+          {item.icon}
+        </span>
+      </TooltipTrigger>
+      <TooltipContent className="bg-secondarybg p-2">
+        <p className="text-paraText">{item.para}</p>
+      </TooltipContent>
+    </Tooltip>
+    ))
+   }
+  </TooltipProvider>
+  )
+}
