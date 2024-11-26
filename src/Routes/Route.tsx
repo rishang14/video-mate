@@ -6,8 +6,7 @@ import SignUp from "../Ui/SignUp";
 import SubscriptionVideo from "../Ui/SubscriptionVideo";
 import PlayList from "../Ui/PlayList";
 import History from "../Ui/History";
-import Liked from "../Ui/Liked";
-
+import Liked from "../Ui/Liked"; 
 const Router = () => {
   return (
     <>
